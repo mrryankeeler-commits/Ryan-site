@@ -59,6 +59,7 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
@@ -66,6 +67,7 @@
       border: 1px solid rgba(227, 246, 252, 0.08);
       color: var(--muted);
       font-size: 0.82rem;
+      line-height: 1.1;
       letter-spacing: 0.02em;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
       backdrop-filter: blur(10px);
@@ -122,12 +124,14 @@
     .nav-cta {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 13px 18px;
+      padding: 14px 18px 12px;
       border-radius: 14px;
       background: linear-gradient(135deg, var(--accent), #47b7ef);
       color: #03172e;
       font-weight: 700;
+      line-height: 1.1;
       box-shadow: 0 10px 24px rgba(22, 150, 217, 0.28);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -213,9 +217,10 @@
       justify-content: center;
       gap: 10px;
       min-width: 192px;
-      padding: 15px 22px;
+      padding: 16px 22px 14px;
       border-radius: 14px;
       font-weight: 700;
+      line-height: 1.1;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
@@ -438,6 +443,9 @@
       border: 1px solid rgba(165, 228, 252, 0.12);
       font-size: 1.1rem;
       font-weight: 700;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      padding-top: 1px;
     }
 
     .steps-grid {
@@ -457,6 +465,8 @@
       color: #04162f;
       background: linear-gradient(135deg, var(--accent-soft), #d3f4ff);
       font-weight: 800;
+      line-height: 1;
+      padding-top: 1px;
       box-shadow: 0 8px 20px rgba(165, 228, 252, 0.18);
     }
 
@@ -587,7 +597,7 @@
       display: grid;
       grid-template-columns: 28px 1fr;
       gap: 14px;
-      align-items: start;
+      align-items: center;
       color: var(--muted);
     }
 
@@ -602,7 +612,7 @@
       font-size: 0.92rem;
       font-weight: 800;
       line-height: 1;
-      margin-top: 1px;
+      margin-top: 0;
     }
 
     .fit-icon.positive {
@@ -783,6 +793,8 @@
       border-radius: 999px;
       display: inline-grid;
       place-items: center;
+      line-height: 1;
+      padding-top: 1px;
       background: rgba(165, 228, 252, 0.08);
       border: 1px solid rgba(165, 228, 252, 0.14);
       flex-shrink: 0;
