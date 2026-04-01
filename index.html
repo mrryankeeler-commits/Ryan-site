@@ -682,11 +682,12 @@
 
     .about-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.78fr);
       grid-template-areas:
         "header gallery"
         "body body";
-      gap: 42px;
+      column-gap: 58px;
+      row-gap: 42px;
       align-items: start;
     }
 
@@ -733,6 +734,14 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       align-self: start;
+    }
+
+    @media (min-width: 1081px) {
+      .about-gallery {
+        width: min(100%, 370px);
+        justify-self: end;
+        margin-top: 8px;
+      }
     }
 
     .about-photo {
