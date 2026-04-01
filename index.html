@@ -687,10 +687,11 @@
       z-index: 2;
     }
 
-    .about-photo svg {
+    .about-photo img {
       width: 100%;
       height: 100%;
       display: block;
+      object-fit: cover;
     }
 
     .about-photo:nth-child(2) { transform: translateY(-10px); }
@@ -1141,66 +1142,18 @@
               </div>
             </div>
 
-            <div class="about-gallery" aria-label="Placeholder portrait gallery">
-              <div class="about-photo" aria-hidden="true">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait">
-                  <defs>
-                    <linearGradient id="aboutGradA" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#123867"/><stop offset="60%" stop-color="#0a1f44"/><stop offset="100%" stop-color="#041128"/></linearGradient>
-                    <radialGradient id="aboutGlowA" cx="76%" cy="18%" r="24%"><stop offset="0%" stop-color="#d9f7ff" stop-opacity="0.95"/><stop offset="35%" stop-color="#8fdffd" stop-opacity="0.55"/><stop offset="100%" stop-color="#8fdffd" stop-opacity="0"/></radialGradient>
-                    <linearGradient id="aboutFigureA" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#8db7ca"/><stop offset="100%" stop-color="#355a79"/></linearGradient>
-                  </defs>
-                  <rect width="100" height="100" rx="22" fill="url(#aboutGradA)"/>
-                  <rect x="0" y="0" width="100" height="100" fill="url(#aboutGlowA)"/>
-                  <path d="M0 86C13 70 27 61 42 58C57 55 69 60 80 69C88 76 94 83 100 100H0V86Z" fill="#0a1731" opacity="0.72"/>
-                  <circle cx="52" cy="37" r="12" fill="url(#aboutFigureA)"/>
-                  <path d="M28 92C30 72 39 56 52 56C65 56 74 72 76 92H28Z" fill="url(#aboutFigureA)"/>
-                  <path d="M18 74C27 61 38 53 52 53C66 53 77 61 86 74" fill="none" stroke="#c4efff" stroke-opacity="0.16" stroke-width="2"/>
-                </svg>
+            <div class="about-gallery" aria-label="Ryan portrait gallery">
+              <div class="about-photo">
+                <img src="assets/images/ryan-1.jpg" alt="Ryan Keeler portrait 1" loading="lazy" />
               </div>
-              <div class="about-photo" aria-hidden="true">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait">
-                  <defs>
-                    <linearGradient id="aboutGradB" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#102c56"/><stop offset="55%" stop-color="#0b1f40"/><stop offset="100%" stop-color="#031027"/></linearGradient>
-                    <radialGradient id="aboutGlowB" cx="72%" cy="22%" r="21%"><stop offset="0%" stop-color="#eefcff" stop-opacity="0.92"/><stop offset="45%" stop-color="#9fe8ff" stop-opacity="0.42"/><stop offset="100%" stop-color="#9fe8ff" stop-opacity="0"/></radialGradient>
-                    <linearGradient id="aboutFigureB" x1="0.2" y1="0" x2="0.8" y2="1"><stop offset="0%" stop-color="#9ecbe0"/><stop offset="100%" stop-color="#406784"/></linearGradient>
-                  </defs>
-                  <rect width="100" height="100" rx="22" fill="url(#aboutGradB)"/>
-                  <rect x="0" y="0" width="100" height="100" fill="url(#aboutGlowB)"/>
-                  <path d="M0 78C18 66 36 60 58 61C74 62 89 69 100 78V100H0V78Z" fill="#09162d" opacity="0.8"/>
-                  <circle cx="60" cy="34" r="11" fill="url(#aboutFigureB)"/>
-                  <path d="M36 90C39 69 48 52 60 52C72 52 80 69 84 90H36Z" fill="url(#aboutFigureB)"/>
-                  <path d="M26 66C34 56 46 49 61 49" fill="none" stroke="#d6f5ff" stroke-opacity="0.18" stroke-width="2"/>
-                </svg>
+              <div class="about-photo">
+                <img src="assets/images/ryan-2.jpg" alt="Ryan Keeler portrait 2" loading="lazy" />
               </div>
-              <div class="about-photo" aria-hidden="true">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait">
-                  <defs>
-                    <linearGradient id="aboutGradC" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f2b50"/><stop offset="58%" stop-color="#09203e"/><stop offset="100%" stop-color="#041128"/></linearGradient>
-                    <radialGradient id="aboutGlowC" cx="68%" cy="20%" r="20%"><stop offset="0%" stop-color="#f1fcff" stop-opacity="0.9"/><stop offset="48%" stop-color="#8fddfb" stop-opacity="0.34"/><stop offset="100%" stop-color="#8fddfb" stop-opacity="0"/></radialGradient>
-                    <linearGradient id="aboutFigureC" x1="0.35" y1="0" x2="0.65" y2="1"><stop offset="0%" stop-color="#90bdd1"/><stop offset="100%" stop-color="#345874"/></linearGradient>
-                  </defs>
-                  <rect width="100" height="100" rx="22" fill="url(#aboutGradC)"/>
-                  <rect x="0" y="0" width="100" height="100" fill="url(#aboutGlowC)"/>
-                  <path d="M0 82C19 70 33 65 48 64C63 63 81 68 100 82V100H0V82Z" fill="#08162d" opacity="0.8"/>
-                  <circle cx="44" cy="36" r="11.5" fill="url(#aboutFigureC)"/>
-                  <path d="M18 92C22 72 31 54 44 54C57 54 65 72 69 92H18Z" fill="url(#aboutFigureC)"/>
-                  <path d="M56 26C62 24 68 24 74 28" fill="none" stroke="#d7f6ff" stroke-opacity="0.18" stroke-width="2"/>
-                </svg>
+              <div class="about-photo">
+                <img src="assets/images/ryan-3.jpg" alt="Ryan Keeler portrait 3" loading="lazy" />
               </div>
-              <div class="about-photo" aria-hidden="true">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait">
-                  <defs>
-                    <linearGradient id="aboutGradD" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#102d56"/><stop offset="56%" stop-color="#081f3d"/><stop offset="100%" stop-color="#041128"/></linearGradient>
-                    <radialGradient id="aboutGlowD" cx="70%" cy="18%" r="22%"><stop offset="0%" stop-color="#eefcff" stop-opacity="0.9"/><stop offset="42%" stop-color="#97e3fe" stop-opacity="0.38"/><stop offset="100%" stop-color="#97e3fe" stop-opacity="0"/></radialGradient>
-                    <linearGradient id="aboutFigureD" x1="0.4" y1="0" x2="0.6" y2="1"><stop offset="0%" stop-color="#95c1d6"/><stop offset="100%" stop-color="#365b76"/></linearGradient>
-                  </defs>
-                  <rect width="100" height="100" rx="22" fill="url(#aboutGradD)"/>
-                  <rect x="0" y="0" width="100" height="100" fill="url(#aboutGlowD)"/>
-                  <path d="M0 80C18 69 36 64 57 65C76 66 90 73 100 81V100H0V80Z" fill="#08162d" opacity="0.82"/>
-                  <circle cx="55" cy="35" r="11.5" fill="url(#aboutFigureD)"/>
-                  <path d="M32 92C35 73 44 54 55 54C67 54 75 73 78 92H32Z" fill="url(#aboutFigureD)"/>
-                  <path d="M23 70C31 61 42 55 55 55C68 55 78 61 85 71" fill="none" stroke="#d6f5ff" stroke-opacity="0.18" stroke-width="2"/>
-                </svg>
+              <div class="about-photo">
+                <img src="assets/images/ryan-4.jpg" alt="Ryan Keeler portrait 4" loading="lazy" />
               </div>
             </div>
           </div>
