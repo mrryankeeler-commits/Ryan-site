@@ -732,13 +732,13 @@
       grid-area: gallery;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 16px;
       align-self: start;
     }
 
     @media (min-width: 1081px) {
       .about-gallery {
-        width: min(100%, 352px);
+        width: min(100%, 420px);
         justify-self: end;
         margin-top: 8px;
       }
@@ -771,9 +771,7 @@
       object-fit: cover;
     }
 
-    .about-photo:nth-child(2) { transform: translateY(-10px); }
-    .about-photo:nth-child(3) { transform: translateY(10px); }
-    .about-photo:nth-child(4) { transform: translateY(4px); }
+    .about-photo:nth-child(2) { transform: translateY(-6px); }
 
     .cta-panel {
       position: relative;
@@ -1310,12 +1308,6 @@
               </div>
               <div class="about-photo">
                 <img src="assets/images/ryan-2.jpg" alt="Ryan Keeler portrait 2" loading="lazy" />
-              </div>
-              <div class="about-photo">
-                <img src="assets/images/ryan-3.jpg" alt="Ryan Keeler portrait 3" loading="lazy" />
-              </div>
-              <div class="about-photo">
-                <img src="assets/images/ryan-4.jpg" alt="Ryan Keeler portrait 4" loading="lazy" />
               </div>
             </div>
 
