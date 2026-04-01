@@ -732,15 +732,16 @@
       grid-area: gallery;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 14px;
       align-self: start;
     }
 
     @media (min-width: 1081px) {
       .about-gallery {
-        width: min(100%, 420px);
+        width: min(100%, 388px);
         justify-self: end;
-        margin-top: 8px;
+        align-self: center;
+        margin-top: 0;
       }
     }
 
@@ -771,7 +772,7 @@
       object-fit: cover;
     }
 
-    .about-photo:nth-child(2) { transform: translateY(-6px); }
+    .about-photo:nth-child(2) { transform: translateY(-2px); }
 
     .cta-panel {
       position: relative;
