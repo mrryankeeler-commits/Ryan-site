@@ -840,10 +840,42 @@
     }
 
     .footer-links {
-      display: flex;
+      display: inline-flex;
+      align-items: baseline;
       gap: 18px;
       flex-wrap: wrap;
     }
+
+    .footer-contact-row {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(227, 246, 252, 0.74);
+      font-size: 0.9rem;
+    }
+
+    .footer-contact-link:hover { color: var(--text); }
+
+    .footer-contact-icon {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      color: rgba(165, 228, 252, 0.78);
+      flex-shrink: 0;
+    }
+
+    .footer-contact-link:hover .footer-contact-icon { color: var(--accent-soft); }
 
     @media (max-width: 1080px) {
       .problem-card,
@@ -1218,7 +1250,7 @@
             <h2>If your LinkedIn sounds flatter than you do in real life, that’s fixable</h2>
             <p>You do not need more content for the sake of it. You need a profile and presence that make your expertise easier to trust. If you want your LinkedIn to feel more like you, build trust faster, and attract better-fit conversations, let’s talk.</p>
             <div class="hero-actions">
-              <a href="mailto:hello@ryankeeler.co.uk" class="button-primary">Book a call ↗</a>
+              <a href="https://calendly.com/mrryankeeler/clarity-call" class="button-primary">Book a call ↗</a>
               <a href="#top" class="button-secondary">Back to the top ↑</a>
             </div>
           </div>
@@ -1371,13 +1403,29 @@
     </main>
 
     <footer class="footer">
-      <div class="container footer-inner">
-        <div>© 2026 Ryan Keeler. All rights reserved.</div>
-        <div class="footer-links">
-          <a href="#problem">Problem</a>
-          <a href="#how-i-help">Services</a>
-          <a href="#about">About</a>
-          <a href="#faq">FAQ</a>
+      <div class="container">
+        <div class="footer-inner">
+          <div>© 2026 Ryan Keeler. All rights reserved.</div>
+          <div class="footer-links">
+            <a href="#problem">Problem</a>
+            <a href="#how-i-help">Services</a>
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </div>
+        <div class="footer-contact-row">
+          <a href="https://www.linkedin.com/in/mrryankeeler/" class="footer-contact-link">
+            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.9 1.7-1.9 3.6-1.9c3.8 0 4.5 2.5 4.5 5.8V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21h-4V9Z"/>
+            </svg>
+            <span>Connect on LinkedIn</span>
+          </a>
+          <a href="mailto:mrryankeeler@gmail.com?subject=Enquiry%20for%20Ryan%20via%20website" class="footer-contact-link">
+            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.1-.15 6.9 5.33 6.9-5.33a1.25 1.25 0 0 0-.65-.1H5.75c-.24 0-.46.03-.65.1Zm13.4 2.01-5.74 4.43a1.25 1.25 0 0 1-1.52 0L5.5 8.61v8.64c0 .69.56 1.25 1.25 1.25h12.5c.69 0 1.25-.56 1.25-1.25V8.61Z"/>
+            </svg>
+            <span>Get in touch by email</span>
+          </a>
         </div>
       </div>
     </footer>
