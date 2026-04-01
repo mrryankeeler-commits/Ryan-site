@@ -72,8 +72,7 @@
     }
 
     .site-nav {
-      position: sticky;
-      top: 0;
+      position: relative;
       z-index: 30;
       backdrop-filter: blur(20px);
       background: linear-gradient(180deg, rgba(0, 10, 24, 0.86), rgba(0, 10, 24, 0.55));
@@ -744,7 +743,7 @@
     }
 
     .faq-header {
-      max-width: 760px;
+      max-width: 980px;
       margin-bottom: 26px;
     }
 
@@ -772,6 +771,10 @@
       color: var(--text);
     }
 
+    .faq-item summary span {
+      margin: 0;
+    }
+
     .faq-item summary::-webkit-details-marker { display: none; }
 
     .faq-icon {
@@ -791,7 +794,22 @@
     .faq-answer {
       padding: 0 24px 22px;
       color: var(--muted);
-      max-width: 76ch;
+      max-width: none;
+    }
+
+    .faq-answer p {
+      margin: 0 0 12px;
+    }
+
+    .faq-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-answer ul {
+      margin: 0 0 12px 20px;
+      padding: 0;
+      display: grid;
+      gap: 6px;
     }
 
     .footer {
@@ -912,7 +930,7 @@
             For founders and B2B leaders whose work is strong, but hard to assess quickly online. I help you turn your perspective, experience, and real stories into a LinkedIn presence that builds trust and attracts better-fit conversations.
           </p>
           <div class="hero-actions">
-            <a href="#cta" class="button-primary">Apply to work together ↗</a>
+            <a href="#cta" class="button-primary">Book a call ↗</a>
             <a href="#how-it-works" class="button-secondary">See how it works ⌄</a>
           </div>
         </div>
@@ -1189,7 +1207,7 @@
             <h2>If your LinkedIn sounds flatter than you do in real life, that’s fixable</h2>
             <p>You do not need more content for the sake of it. You need a profile and presence that make your expertise easier to trust. If you want your LinkedIn to feel more like you, build trust faster, and attract better-fit conversations, let’s talk.</p>
             <div class="hero-actions">
-              <a href="mailto:hello@ryankeeler.co.uk" class="button-primary">Send me a message ↗</a>
+              <a href="mailto:hello@ryankeeler.co.uk" class="button-primary">Book a call ↗</a>
               <a href="#top" class="button-secondary">Back to the top ↑</a>
             </div>
           </div>
@@ -1205,28 +1223,135 @@
             </div>
             <div class="faq-stack">
               <details class="faq-item">
-                <summary><span>Will this actually sound like me?</span><span class="faq-icon">＋</span></summary>
-                <div class="faq-answer">That’s the whole point. My job isn’t to paste a style onto you. It’s to understand how you think, what you notice, what you care about, and how you naturally communicate, then shape that into a stronger online presence.</div>
+                <summary><span>How much time will this take from me?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>Usually less than people expect.</p>
+                  <p>After the initial setup, your job is basically:</p>
+                  <ul>
+                    <li>one weekly or bi-weekly capture call (45-60 mins), or voice notes if times are hectic for you</li>
+                    <li>quick approvals in Notion</li>
+                  </ul>
+                  <p>Everything else, writing, planning, editing, formatting, scheduling, and distribution, is handled inside the system.</p>
+                  <p>You stay focused on running your business while still showing up as an authority on LinkedIn.</p>
+                </div>
               </details>
               <details class="faq-item">
-                <summary><span>I don’t want to overshare online. Is that a problem?</span><span class="faq-icon">＋</span></summary>
-                <div class="faq-answer">No. This isn’t about turning LinkedIn into a diary. We use stories in a controlled, useful way, with enough humanity to build trust without making your content feel exposed or unprofessional.</div>
+                <summary><span>How do you write in my voice?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>I don’t guess. I build the voice properly upfront.</p>
+                  <ul>
+                    <li>A deep interview to pull out your language, tone, beliefs, standards, hot takes, and personality</li>
+                    <li>Review anything you’ve already written or said (posts, emails, decks, podcasts, call recordings)</li>
+                    <li>Then we lock it into a Voice Kit so everything stays consistent</li>
+                  </ul>
+                  <p>The goal isn’t <em>“nice writing”</em> or generic copy.</p>
+                  <p>It’s your thinking, translated into posts and positioning that land.</p>
+                </div>
               </details>
               <details class="faq-item">
-                <summary><span>What if I don’t have time for this?</span><span class="faq-icon">＋</span></summary>
-                <div class="faq-answer">That’s exactly why people hire me. The process is designed to pull strong material from conversations, voice notes, and the things you’re already doing, then turn that into assets that support your business.</div>
+                <summary><span>Do I have control over what gets posted?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>Yes. You have final approval on everything.</p>
+                  <p>Nothing goes out without a green light from you.</p>
+                  <p>And we’ll agree guardrails early (topics, boundaries, proof limits, <em>“don’t say this publicly”</em>) so you’re never worrying about risk.</p>
+                </div>
               </details>
               <details class="faq-item">
-                <summary><span>Why not just use AI?</span><span class="faq-icon">＋</span></summary>
-                <div class="faq-answer">AI can help with speed, but it can’t supply lived perspective. It doesn’t know your standards, your trade-offs, or where your credibility actually comes from. People can feel the difference.</div>
+                <summary><span>What results should I expect? / How soon will I see results?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>We’ll track the right signals for your market, and you’ll usually feel the first movement within a few weeks:</p>
+                  <ul>
+                    <li>more profile views from the right people (not just random LinkedIn traffic)</li>
+                    <li>more follows from the right people (quiet buyers, future partners, referrers)</li>
+                    <li>better quality inbound messages and conversations</li>
+                    <li>higher connection request acceptance rates (from your ideal clients or buyers)</li>
+                    <li>faster trust in sales conversations (<em>“I already know how you think”</em>)</li>
+                  </ul>
+                  <p>This is a compounding system. The strongest results show up as credibility and relationships stack over months, especially with multi-year cycles.</p>
+                  <p>Early on, the main win is typically quality, not volume. The volume comes as the consistency compounds.</p>
+                </div>
               </details>
               <details class="faq-item">
-                <summary><span>Do you only do done-for-you ghostwriting?</span><span class="faq-icon">＋</span></summary>
-                <div class="faq-answer">No. I also offer strategic support and consulting for people who want help with positioning, profile improvement, content direction, or storytelling without handing everything over.</div>
+                <summary><span>Will 5 posts a week feel like too much?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>No, because the content isn’t repetitive. It’s structured.</p>
+                  <p>We rotate across:</p>
+                  <ul>
+                    <li>market shifts your buyers care about</li>
+                    <li>the lived reality they’re dealing with</li>
+                    <li>your category thinking (the <em>“how you see it”</em>)</li>
+                    <li>proof (sanitised case studies, outcomes)</li>
+                    <li>founder POV (taste, judgement, standards)</li>
+                  </ul>
+                  <p>The repetition is in the positioning, not in the content.</p>
+                  <p>And in high-trust markets, the right people often watch quietly. So staying consistent in this way is what builds trust and makes working with you the obvious choice.</p>
+                </div>
               </details>
               <details class="faq-item">
-                <summary><span>Who do you usually work with?</span><span class="faq-icon">＋</span></summary>
-                <div class="faq-answer">Usually founders, CEOs, and established B2B leaders whose expertise is real, but whose LinkedIn presence is either underdeveloped, too generic, or not yet doing justice to the level they operate at.</div>
+                <summary><span>How do we avoid oversharing or educating competitors?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>This is baked into how I operate.</p>
+                  <p>I keep your content commercially valuable without making it operationally replicable.</p>
+                  <p>That means:</p>
+                  <ul>
+                    <li>anonymised case studies</li>
+                    <li>no sensitive details</li>
+                    <li>principles, patterns, and outcomes, not step-by-step playbooks</li>
+                    <li>deeper detail saved for private conversations with qualified buyers</li>
+                  </ul>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span>Is this worth the investment?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>Only if your time is valuable. It is.</p>
+                  <p>If you’re the bottleneck for:</p>
+                  <ul>
+                    <li>credibility</li>
+                    <li>relationship building</li>
+                    <li>consistent visibility</li>
+                  </ul>
+                  <p>…then this is leverage.</p>
+                  <p>You’re not paying for posts.</p>
+                  <p>You’re paying for a system that turns your judgement and proof into market familiarity, without stealing countless hours every week.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span>What will you need from me?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>Three things:</p>
+                  <ul>
+                    <li>a weekly or bi-weekly call (45-60 mins)</li>
+                    <li>timely approval and feedback on drafts</li>
+                    <li>any existing assets, photos of you, proof, and context you’re comfortable sharing (optional but recommended)</li>
+                  </ul>
+                  <p>Everything else is handled inside the system.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span>What if we don’t have case studies we can share publicly?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>I get it, that happens.</p>
+                  <p>I can build proof without naming clients:</p>
+                  <ul>
+                    <li>sanitised stories (stakes → change → outcome)</li>
+                    <li>proof of process (how you think, measure, decide)</li>
+                    <li>quantified outcomes where safe (ranges, deltas, before/after)</li>
+                  </ul>
+                  <p>Proof doesn’t necessarily need logos. It needs clarity.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span>What if my industry is too niche or complex for LinkedIn?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">
+                  <p>That’s usually an advantage, because most people in niche industries either:</p>
+                  <ul>
+                    <li>talk in jargon (so nobody understands them)</li>
+                    <li>water it down so much it says nothing</li>
+                  </ul>
+                  <p>I write to your buyer’s decision logic in plain English, i.e. the trade-offs, risks, and patterns they actually care about.</p>
+                  <p>If anything, clarity in a niche market stands out more.</p>
+                </div>
               </details>
             </div>
           </div>
