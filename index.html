@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryan Keeler | Making In-Depth Expertise Easy to Trust on LinkedIn</title>
+  <style>
+    :root {
+      --positive: #47d16c;
+      --negative: #ff6b6b;
+      --bg: #001B40;
+      --bg-deep: #000914;
+      --panel: rgba(8, 25, 56, 0.72);
+      --panel-strong: rgba(9, 29, 66, 0.88);
+      --line: rgba(165, 228, 252, 0.12);
+      --line-strong: rgba(165, 228, 252, 0.22);
+      --text: #E3F6FC;
+      --muted: rgba(227, 246, 252, 0.76);
+      --accent: #1696D9;
+      --accent-soft: #A5E4FC;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Acumin Pro SemiCondensed", "Acumin Variable Concept", "Inter", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(22, 150, 217, 0.20), transparent 28%),
+        radial-gradient(circle at 85% 0%, rgba(165, 228, 252, 0.14), transparent 24%),
+        linear-gradient(180deg, #021734 0%, #001127 28%, #000814 100%);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .site-shell {
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(227, 246, 252, 0.06);
+      border: 1px solid rgba(227, 246, 252, 0.08);
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+      backdrop-filter: blur(10px);
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(180deg, rgba(0, 10, 24, 0.86), rgba(0, 10, 24, 0.55));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: var(--text);
+      background: linear-gradient(145deg, rgba(22, 150, 217, 0.28), rgba(165, 228, 252, 0.08));
+      border: 1px solid rgba(165, 228, 252, 0.18);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), #47b7ef);
+      color: #03172e;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(22, 150, 217, 0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-cta:hover,
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      padding: 96px 0 74px;
+      min-height: 84vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(1, 17, 39, 0.25), rgba(1, 17, 39, 0.65)),
+        radial-gradient(circle at 50% 16%, rgba(165, 228, 252, 0.10), transparent 26%);
+      z-index: 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 44px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      max-width: 940px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      margin: 18px 0 20px;
+      font-family: "Acumin Pro ExtraCondensed", "Acumin Variable Concept", "Inter Tight", "Arial Narrow", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(3.2rem, 6vw, 6rem);
+      line-height: 1.02;
+      letter-spacing: -0.028em;
+      max-width: 980px;
+      margin-inline: auto;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(180deg, var(--text) 0%, var(--accent-soft) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: clamp(1rem, 1.4vw, 1.14rem);
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 192px;
+      padding: 15px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--accent), #47b7ef);
+      color: #03172e;
+      box-shadow: 0 12px 28px rgba(22, 150, 217, 0.28);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(165, 228, 252, 0.24);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      backdrop-filter: blur(10px);
+    }
+
+    .card::before,
+    .step::before,
+    .cta-panel::before,
+    .faq::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(165, 228, 252, 0.10), transparent 35%, transparent 60%, rgba(22, 150, 217, 0.08) 100%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .card h3,
+    .step h3,
+    .faq-item summary span {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .card p,
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .hero-visual {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-visual svg {
+      position: absolute;
+      inset: auto 50% -34px;
+      transform: translateX(-50%);
+      width: min(1600px, 120%);
+      opacity: 0.74;
+      filter: drop-shadow(0 0 28px rgba(22, 150, 217, 0.16));
+    }
+
+    section {
+      padding: 78px 0;
+      position: relative;
+    }
+
+    .section-intro {
+      display: grid;
+      gap: 20px;
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .section-intro.centered {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .section-label {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: "Acumin Pro ExtraCondensed", "Acumin Variable Concept", "Inter Tight", "Arial Narrow", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(2.15rem, 4vw, 3.8rem);
+      line-height: 1.04;
+      letter-spacing: -0.024em;
+    }
+
+    .lead,
+    .body-copy {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 72ch;
+    }
+
+    .problem-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 42px;
+      align-items: center;
+      padding: 40px 42px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(8, 25, 56, 0.78), rgba(4, 16, 36, 0.9));
+      border: 1px solid rgba(165, 228, 252, 0.12);
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.24);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(165, 228, 252, 0.08), transparent 38%, transparent 62%, rgba(22, 150, 217, 0.07) 100%);
+      pointer-events: none;
+    }
+
+    .problem-copy,
+    .problem-visual {
+      position: relative;
+      z-index: 1;
+    }
+
+    .problem-copy { max-width: 650px; }
+
+    .problem-copy .section-label {
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+
+    #problem h2 {
+      max-width: 620px;
+      font-size: clamp(2.5rem, 4.5vw, 4.45rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      margin-bottom: 22px;
+    }
+
+    #problem .lead {
+      max-width: 560px;
+      font-size: 1.04rem;
+      margin: 0;
+    }
+
+    .problem-support {
+      margin-top: 24px;
+      display: grid;
+      gap: 10px;
+      max-width: 30ch;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .problem-support p,
+    .problem-truth { margin: 0; }
+
+    .problem-truth {
+      margin-top: 22px;
+      max-width: 36ch;
+      padding-top: 18px;
+      border-top: 1px solid rgba(165, 228, 252, 0.12);
+      color: var(--text);
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .problem-visual {
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      overflow: visible;
+    }
+
+    .problem-visual svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-width: 420px;
+      filter: drop-shadow(0 12px 28px rgba(22, 150, 217, 0.12));
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card,
+    .step {
+      padding: 28px 24px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(8, 25, 56, 0.76), rgba(4, 16, 36, 0.88));
+      border: 1px solid rgba(165, 228, 252, 0.1);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-chip {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 18px;
+      color: var(--text);
+      background: linear-gradient(140deg, rgba(22, 150, 217, 0.25), rgba(165, 228, 252, 0.08));
+      border: 1px solid rgba(165, 228, 252, 0.12);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      color: #04162f;
+      background: linear-gradient(135deg, var(--accent-soft), #d3f4ff);
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(165, 228, 252, 0.18);
+    }
+
+    .difference-card {
+      position: relative;
+      padding: 8px 0 0;
+    }
+
+    .difference-card::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -24px;
+      transform: translateX(-50%);
+      width: min(760px, 100%);
+      height: 260px;
+      background: radial-gradient(circle at center, rgba(22, 150, 217, 0.14), transparent 68%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .difference-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    #why-different .section-intro {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      text-align: center;
+    }
+
+    #why-different .lead {
+      margin-inline: auto;
+      max-width: 620px;
+    }
+
+    .difference-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+      position: relative;
+      align-items: start;
+    }
+
+    .difference-grid::before {
+      content: "";
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      top: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(165, 228, 252, 0.18), transparent);
+      pointer-events: none;
+    }
+
+    .difference-point {
+      min-height: 100%;
+      padding: 26px 24px 24px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(8, 25, 56, 0.74), rgba(4, 16, 36, 0.9));
+      border: 1px solid rgba(165, 228, 252, 0.1);
+      color: var(--muted);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .difference-point::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      top: 0;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(165, 228, 252, 0.9), rgba(22, 150, 217, 0.58));
+      border-radius: 999px;
+    }
+
+    .difference-point:nth-child(2) { transform: translateY(18px); }
+    .difference-point:nth-child(3) { transform: translateY(36px); }
+
+    .difference-point strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .difference-point strong::before {
+      counter-increment: difference-step;
+      content: "0" counter(difference-step);
+      display: block;
+      margin-bottom: 14px;
+      color: rgba(165, 228, 252, 0.72);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+    }
+
+    .fit-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .fit-column {
+      padding: 28px 26px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(8, 25, 56, 0.76), rgba(4, 16, 36, 0.88));
+      border: 1px solid rgba(165, 228, 252, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .fit-heading {
+      margin: 0 0 18px;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    .fit-list-items {
+      display: grid;
+      gap: 16px;
+    }
+
+    .fit-entry {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      align-items: start;
+      color: var(--muted);
+    }
+
+    .fit-entry p { margin: 0; }
+
+    .fit-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    .fit-icon.positive {
+      color: var(--positive);
+      border: 1px solid rgba(71, 209, 108, 0.32);
+      background: rgba(71, 209, 108, 0.08);
+    }
+
+    .fit-icon.negative {
+      color: var(--negative);
+      border: 1px solid rgba(255, 107, 107, 0.32);
+      background: rgba(255, 107, 107, 0.08);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .about-copy {
+      display: grid;
+      gap: 30px;
+      align-self: stretch;
+    }
+
+    .about-header,
+    .about-heading,
+    .about-subtext,
+    .about-body {
+      max-width: 60ch;
+    }
+
+    .about-heading {
+      margin: 14px 0 16px;
+      font-size: clamp(2.7rem, 4.9vw, 5.15rem);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+    }
+
+    .about-subtext {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .about-body {
+      padding-top: 28px;
+      border-top: 1px solid rgba(165, 228, 252, 0.14);
+    }
+
+    .about-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .about-body p + p { margin-top: 18px; }
+
+    .about-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-self: start;
+    }
+
+    .about-photo {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 30px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(8, 25, 56, 0.86), rgba(4, 16, 36, 0.95));
+      border: 1px solid rgba(165, 228, 252, 0.1);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+      isolation: isolate;
+    }
+
+    .about-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(165, 228, 252, 0.06), transparent 28%, rgba(0, 0, 0, 0.14) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .about-photo svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .about-photo:nth-child(2) { transform: translateY(-10px); }
+    .about-photo:nth-child(3) { transform: translateY(10px); }
+    .about-photo:nth-child(4) { transform: translateY(4px); }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 44px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(165, 228, 252, 0.18), transparent 20%),
+        radial-gradient(circle at 10% 20%, rgba(22, 150, 217, 0.22), transparent 28%),
+        linear-gradient(135deg, rgba(7, 29, 66, 0.98), rgba(2, 11, 26, 0.98));
+      border: 1px solid rgba(165, 228, 252, 0.14);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+
+    .cta-panel .eyebrow { margin-bottom: 24px; }
+
+    .cta-panel h2 {
+      max-width: 920px;
+      margin: 0 auto 16px;
+    }
+
+    .cta-panel p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .cta-panel .hero-actions { margin-top: 26px; }
+
+    .faq {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(8, 25, 56, 0.76), rgba(4, 16, 36, 0.88));
+      border: 1px solid rgba(165, 228, 252, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .faq-header {
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .faq-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border-radius: 18px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(165, 228, 252, 0.1);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 24px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(165, 228, 252, 0.08);
+      border: 1px solid rgba(165, 228, 252, 0.14);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      padding: 0 24px 22px;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+
+    .footer {
+      padding: 28px 0 56px;
+      color: rgba(227, 246, 252, 0.64);
+      font-size: 0.92rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 22px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1080px) {
+      .problem-card,
+      .about-layout,
+      .fit-wrap,
+      .card-grid,
+      .steps-grid,
+      .difference-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .difference-grid::before { display: none; }
+      .difference-point:nth-child(2),
+      .difference-point:nth-child(3) { transform: none; }
+    }
+
+    @media (max-width: 820px) {
+      .nav-inner {
+        min-height: auto;
+        padding: 18px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 82px 0 58px;
+      }
+
+      section { padding: 66px 0; }
+
+      .hero-actions { flex-direction: column; }
+
+      .button-primary,
+      .button-secondary,
+      .nav-cta { width: 100%; }
+
+      .problem-card,
+      .fit-column,
+      .cta-panel,
+      .faq { padding: 26px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 24px, var(--container)); }
+      .hero h1 { font-size: clamp(2.6rem, 14vw, 4rem); }
+      h2 { font-size: clamp(2rem, 12vw, 3rem); }
+      .problem-card,
+      .fit-column,
+      .cta-panel,
+      .faq,
+      .card,
+      .step { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="container nav-inner">
+        <a href="#top" class="brand" aria-label="Ryan Keeler home">
+          <span class="brand-mark">R</span>
+          <span>Ryan Keeler</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#how-it-works">How it works</a>
+          <a href="#why-different">Why it’s different</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+        </div>
+
+        <a href="#cta" class="nav-cta">Book a call ↗</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">LinkedIn Ghostwriter &amp; Personal Brand Strategist</span>
+          <h1><span>Making your expertise<br>easy to trust on LinkedIn.</span></h1>
+          <p>
+            For founders and B2B leaders whose work is strong, but hard to assess quickly online. I help you turn your perspective, experience, and real stories into a LinkedIn presence that builds trust and attracts better-fit conversations.
+          </p>
+          <div class="hero-actions">
+            <a href="#cta" class="button-primary">Apply to work together ↗</a>
+            <a href="#how-it-works" class="button-secondary">See how it works ⌄</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 1600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 286C95 269 172 248 251 212C323 180 372 134 425 122C485 109 529 125 602 163C667 196 730 231 808 231C884 231 937 196 1008 157C1071 122 1128 92 1197 98C1268 105 1324 150 1392 190C1454 227 1515 252 1600 266V420H0V286Z" fill="url(#mountainFill)" opacity="0.92"/>
+          <path d="M0 308C94 294 188 246 257 216C334 182 380 127 443 122C511 117 558 156 626 198C687 236 742 259 807 259C872 259 924 235 989 199C1060 160 1120 121 1193 121C1273 121 1337 167 1410 214C1466 250 1525 275 1600 288" stroke="rgba(165,228,252,0.7)" stroke-width="2"/>
+          <defs>
+            <linearGradient id="mountainFill" x1="800" y1="98" x2="800" y2="420" gradientUnits="userSpaceOnUse">
+              <stop stop-color="rgba(165,228,252,0.28)"/>
+              <stop offset="1" stop-color="rgba(4, 16, 36, 0.98)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </header>
+
+    <main>
+      <section id="problem">
+        <div class="container">
+          <div class="problem-card">
+            <div class="problem-copy">
+              <span class="section-label">The problem</span>
+              <h2>Your expertise probably isn’t the problem</h2>
+              <p class="lead">The problem is that online, real depth gets flattened fast. So a lot of smart people end up sounding smaller than they are.</p>
+              <div class="problem-support">
+                <p>They default to safe content.</p>
+                <p>Tidy frameworks. Polished opinions. Generic “value”.</p>
+                <p>It sounds professional, but makes them easy to forget.</p>
+              </div>
+              <p class="problem-truth">This is less of a content problem, and more of a trust problem than most people realise.</p>
+            </div>
+
+            <div class="problem-visual" aria-hidden="true">
+              <svg viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="profileStroke" x1="92" y1="74" x2="416" y2="336" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#A5E4FC"/>
+                    <stop offset="1" stop-color="#1696D9"/>
+                  </linearGradient>
+                  <linearGradient id="profileFill" x1="116" y1="98" x2="404" y2="320" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#A5E4FC" stop-opacity="0.12"/>
+                    <stop offset="1" stop-color="#1696D9" stop-opacity="0.03"/>
+                  </linearGradient>
+                </defs>
+                <rect x="96" y="70" width="328" height="280" rx="28" fill="url(#profileFill)" stroke="url(#profileStroke)" stroke-opacity="0.34" stroke-width="1.6"/>
+                <circle cx="176" cy="148" r="34" fill="none" stroke="url(#profileStroke)" stroke-width="2.6" stroke-opacity="0.9"/>
+                <path d="M130 228C140 194 162 178 176 178C190 178 212 194 222 228" stroke="url(#profileStroke)" stroke-width="2.6" stroke-linecap="round" stroke-opacity="0.9"/>
+                <rect x="242" y="116" width="126" height="12" rx="6" fill="#A5E4FC" fill-opacity="0.88"/>
+                <rect x="242" y="142" width="94" height="9" rx="4.5" fill="#A5E4FC" fill-opacity="0.46"/>
+                <rect x="130" y="270" width="260" height="10" rx="5" fill="#A5E4FC" fill-opacity="0.52"/>
+                <rect x="130" y="294" width="228" height="10" rx="5" fill="#A5E4FC" fill-opacity="0.34"/>
+                <path d="M72 210C100 176 112 158 120 124" stroke="#1696D9" stroke-opacity="0.34" stroke-width="2" stroke-linecap="round"/>
+                <path d="M72 210C100 244 112 262 120 296" stroke="#1696D9" stroke-opacity="0.34" stroke-width="2" stroke-linecap="round"/>
+                <path d="M448 210C420 176 408 158 400 124" stroke="#1696D9" stroke-opacity="0.34" stroke-width="2" stroke-linecap="round"/>
+                <path d="M448 210C420 244 408 262 400 296" stroke="#1696D9" stroke-opacity="0.34" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="72" cy="210" r="10" fill="#A5E4FC" fill-opacity="0.9"/>
+                <circle cx="448" cy="210" r="10" fill="#A5E4FC" fill-opacity="0.9"/>
+                <circle cx="260" cy="54" r="8" fill="#A5E4FC" fill-opacity="0.72"/>
+                <path d="M260 62V88" stroke="#A5E4FC" stroke-opacity="0.56" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="what-i-do">
+        <div class="container">
+          <div class="section-intro centered">
+            <span class="section-label">What I do</span>
+            <h2>I help experienced people sound like themselves online, in a way that builds trust</h2>
+            <p class="lead">That usually means fixing the parts of LinkedIn that shape first impressions fastest: your profile, your positioning, your content, and your overall presence.</p>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <div class="icon-chip">01</div>
+              <h3>Clearer first impressions</h3>
+              <p>Your headline, About section, banner, and Featured section start doing more of the heavy lifting.</p>
+            </article>
+            <article class="card">
+              <div class="icon-chip">02</div>
+              <h3>More trust in the feed</h3>
+              <p>Your content stops sounding vague, generic, or over-polished and starts feeling human, specific, and credible.</p>
+            </article>
+            <article class="card">
+              <div class="icon-chip">03</div>
+              <h3>Better-fit conversations</h3>
+              <p>The right people understand your value faster, which changes the quality of the conversations that follow.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-i-help">
+        <div class="container">
+          <div class="section-intro centered">
+            <span class="section-label">How I help</span>
+            <h2>Built around three things</h2>
+            <p class="lead">This is not random posting. It is a trust-led LinkedIn system built around positioning, story, and strategy.</p>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <div class="icon-chip">✦</div>
+              <h3>Storytelling-led ghostwriting</h3>
+              <p>So your LinkedIn content sounds like a real person with perspective, not a content machine with good formatting.</p>
+            </article>
+            <article class="card">
+              <div class="icon-chip">✦</div>
+              <h3>Personal brand strategy</h3>
+              <p>So your presence has direction, consistency, and a stronger link to the business conversations you actually want.</p>
+            </article>
+            <article class="card">
+              <div class="icon-chip">✦</div>
+              <h3>Profile positioning</h3>
+              <p>So your value is easier to understand quickly and your profile stops leaking interest and opportunities.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works">
+        <div class="container">
+          <div class="section-intro centered">
+            <span class="section-label">How it works</span>
+            <h2>A clear system. Not random posting</h2>
+            <p class="lead">Depending on what you need, I can support this done-for-you, strategically, or through a mix of both.</p>
+          </div>
+          <div class="steps-grid">
+            <article class="step">
+              <div class="step-number">1</div>
+              <h3>We clarify your positioning</h3>
+              <p>I get clear on your business, your strengths, your perspective, your stories, and how you want to be perceived.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">2</div>
+              <h3>We rebuild the foundations</h3>
+              <p>Your LinkedIn profile gets sharpened so profile views are more likely to turn into followers, enquiries, and better-fit calls.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">3</div>
+              <h3>We turn your expertise into trust-building content</h3>
+              <p>I extract your insights, decisions, observations, and real stories, then shape them into content people actually remember.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">4</div>
+              <h3>We build authority that compounds</h3>
+              <p>Because good content on its own is rarely enough. Positioning, consistency, trust cues, and follow-through matter too.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-different">
+        <div class="container">
+          <div class="difference-card">
+            <div class="section-intro">
+              <span class="section-label">Why this is different</span>
+              <h2>Most ghostwriting misses the part that actually matters</h2>
+              <p class="lead">It produces content. It doesn’t build trust.</p>
+            </div>
+            <div class="difference-grid" style="counter-reset: difference-step;">
+              <div class="difference-point">
+                <strong>Polished isn’t the same as trusted</strong>
+                A lot of ghostwriters can make you sound “professional”. That is rarely enough.
+              </div>
+              <div class="difference-point">
+                <strong>AI can help with speed, not lived perspective</strong>
+                People can feel when the person behind the words is missing.
+              </div>
+              <div class="difference-point">
+                <strong>I translate the mind behind the work</strong>
+                Your stories, insights, decisions, and personality become content and positioning that make your credibility easier to feel.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="who-its-for">
+        <div class="container">
+          <div class="section-intro centered">
+            <span class="section-label">Is this right for you?</span>
+            <h2>Who it’s for. Who it’s not for.</h2>
+          </div>
+          <div class="fit-wrap">
+            <div class="fit-column">
+              <h3 class="fit-heading">This is for you if:</h3>
+              <div class="fit-list-items">
+                <div class="fit-entry">
+                  <span class="fit-icon positive">✓</span>
+                  <p>You’re a founder, CEO, or established B2B leader whose work is strong, but whose LinkedIn presence still undersells the level you operate at.</p>
+                </div>
+                <div class="fit-entry">
+                  <span class="fit-icon positive">✓</span>
+                  <p>You do not want to create performative, fake content just to stay visible. You want something sharper, truer, and easier to trust.</p>
+                </div>
+                <div class="fit-entry">
+                  <span class="fit-icon positive">✓</span>
+                  <p>You take your reputation seriously, and you want a profile and content presence that support better-fit conversations.</p>
+                </div>
+              </div>
+            </div>
+            <div class="fit-column">
+              <h3 class="fit-heading">This isn’t for you if:</h3>
+              <div class="fit-list-items">
+                <div class="fit-entry">
+                  <span class="fit-icon negative">✕</span>
+                  <p>You want generic content that sounds polished on the surface, but could have been written for almost anyone.</p>
+                </div>
+                <div class="fit-entry">
+                  <span class="fit-icon negative">✕</span>
+                  <p>You care more about vanity metrics than trust, positioning, and attracting the right people.</p>
+                </div>
+                <div class="fit-entry">
+                  <span class="fit-icon negative">✕</span>
+                  <p>You want someone to invent a persona for you, rather than draw out what is already true and make it clearer online.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <div class="about-layout">
+            <div class="about-copy">
+              <div class="about-header">
+                <span class="section-label">About Ryan</span>
+                <h2 class="about-heading">I care about making your expertise easier to feel, understand, and trust.</h2>
+                <p class="about-subtext">I work with founders and B2B leaders who have real depth, but whose LinkedIn presence does not yet carry that depth properly.</p>
+              </div>
+
+              <div class="about-body">
+                <p>That matters because online, people assess you quickly. If your profile is vague, your content is generic, or your perspective feels diluted, people fill in the gaps for themselves. Usually badly.</p>
+                <p>I am naturally more reflective than loud, which is probably part of why I have no interest in performative thought leadership.</p>
+                <p>What interests me is the point where trust starts to form. Usually, it is not because someone posted a better framework. It is because they sounded clear, specific, human, and like there was an actual mind behind the words.</p>
+                <p>My approach is storytelling-led, but grounded in positioning, psychology, and business outcomes. So this is not about turning your LinkedIn into a diary. It is about finding the right moments, decisions, tensions, and perspectives inside your work, then shaping them into something your audience can actually feel.</p>
+              </div>
+            </div>
+
+            <div class="about-gallery" aria-label="Placeholder portrait gallery">
+              <div class="about-photo" aria-hidden="true">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait">
+                  <defs>
+                    <linearGradient id="aboutGradA" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#123867"/><stop offset="60%" stop-color="#0a1f44"/><stop offset="100%" stop-color="#041128"/></linearGradient>
+                    <radialGradient id="aboutGlowA" cx="76%" cy="18%" r="24%"><stop offset="0%" stop-color="#d9f7ff" stop-opacity="0.95"/><stop offset="35%" stop-color="#8fdffd" stop-opacity="0.55"/><stop offset="100%" stop-color="#8fdffd" stop-opacity="0"/></radialGradient>
+                    <linearGradient id="aboutFigureA" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#8db7ca"/><stop offset="100%" stop-color="#355a79"/></linearGradient>
+                  </defs>
+                  <rect width="100" height="100" rx="22" fill="url(#aboutGradA)"/>
+                  <rect x="0" y="0" width="100" height="100" fill="url(#aboutGlowA)"/>
+                  <path d="M0 86C13 70 27 61 42 58C57 55 69 60 80 69C88 76 94 83 100 100H0V86Z" fill="#0a1731" opacity="0.72"/>
+                  <circle cx="52" cy="37" r="12" fill="url(#aboutFigureA)"/>
+                  <path d="M28 92C30 72 39 56 52 56C65 56 74 72 76 92H28Z" fill="url(#aboutFigureA)"/>
+                  <path d="M18 74C27 61 38 53 52 53C66 53 77 61 86 74" fill="none" stroke="#c4efff" stroke-opacity="0.16" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="about-photo" aria-hidden="true">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait">
+                  <defs>
+                    <linearGradient id="aboutGradB" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#102c56"/><stop offset="55%" stop-color="#0b1f40"/><stop offset="100%" stop-color="#031027"/></linearGradient>
+                    <radialGradient id="aboutGlowB" cx="72%" cy="22%" r="21%"><stop offset="0%" stop-color="#eefcff" stop-opacity="0.92"/><stop offset="45%" stop-color="#9fe8ff" stop-opacity="0.42"/><stop offset="100%" stop-color="#9fe8ff" stop-opacity="0"/></radialGradient>
+                    <linearGradient id="aboutFigureB" x1="0.2" y1="0" x2="0.8" y2="1"><stop offset="0%" stop-color="#9ecbe0"/><stop offset="100%" stop-color="#406784"/></linearGradient>
+                  </defs>
+                  <rect width="100" height="100" rx="22" fill="url(#aboutGradB)"/>
+                  <rect x="0" y="0" width="100" height="100" fill="url(#aboutGlowB)"/>
+                  <path d="M0 78C18 66 36 60 58 61C74 62 89 69 100 78V100H0V78Z" fill="#09162d" opacity="0.8"/>
+                  <circle cx="60" cy="34" r="11" fill="url(#aboutFigureB)"/>
+                  <path d="M36 90C39 69 48 52 60 52C72 52 80 69 84 90H36Z" fill="url(#aboutFigureB)"/>
+                  <path d="M26 66C34 56 46 49 61 49" fill="none" stroke="#d6f5ff" stroke-opacity="0.18" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="about-photo" aria-hidden="true">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait">
+                  <defs>
+                    <linearGradient id="aboutGradC" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f2b50"/><stop offset="58%" stop-color="#09203e"/><stop offset="100%" stop-color="#041128"/></linearGradient>
+                    <radialGradient id="aboutGlowC" cx="68%" cy="20%" r="20%"><stop offset="0%" stop-color="#f1fcff" stop-opacity="0.9"/><stop offset="48%" stop-color="#8fddfb" stop-opacity="0.34"/><stop offset="100%" stop-color="#8fddfb" stop-opacity="0"/></radialGradient>
+                    <linearGradient id="aboutFigureC" x1="0.35" y1="0" x2="0.65" y2="1"><stop offset="0%" stop-color="#90bdd1"/><stop offset="100%" stop-color="#345874"/></linearGradient>
+                  </defs>
+                  <rect width="100" height="100" rx="22" fill="url(#aboutGradC)"/>
+                  <rect x="0" y="0" width="100" height="100" fill="url(#aboutGlowC)"/>
+                  <path d="M0 82C19 70 33 65 48 64C63 63 81 68 100 82V100H0V82Z" fill="#08162d" opacity="0.8"/>
+                  <circle cx="44" cy="36" r="11.5" fill="url(#aboutFigureC)"/>
+                  <path d="M18 92C22 72 31 54 44 54C57 54 65 72 69 92H18Z" fill="url(#aboutFigureC)"/>
+                  <path d="M56 26C62 24 68 24 74 28" fill="none" stroke="#d7f6ff" stroke-opacity="0.18" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="about-photo" aria-hidden="true">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait">
+                  <defs>
+                    <linearGradient id="aboutGradD" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#102d56"/><stop offset="56%" stop-color="#081f3d"/><stop offset="100%" stop-color="#041128"/></linearGradient>
+                    <radialGradient id="aboutGlowD" cx="70%" cy="18%" r="22%"><stop offset="0%" stop-color="#eefcff" stop-opacity="0.9"/><stop offset="42%" stop-color="#97e3fe" stop-opacity="0.38"/><stop offset="100%" stop-color="#97e3fe" stop-opacity="0"/></radialGradient>
+                    <linearGradient id="aboutFigureD" x1="0.4" y1="0" x2="0.6" y2="1"><stop offset="0%" stop-color="#95c1d6"/><stop offset="100%" stop-color="#365b76"/></linearGradient>
+                  </defs>
+                  <rect width="100" height="100" rx="22" fill="url(#aboutGradD)"/>
+                  <rect x="0" y="0" width="100" height="100" fill="url(#aboutGlowD)"/>
+                  <path d="M0 80C18 69 36 64 57 65C76 66 90 73 100 81V100H0V80Z" fill="#08162d" opacity="0.82"/>
+                  <circle cx="55" cy="35" r="11.5" fill="url(#aboutFigureD)"/>
+                  <path d="M32 92C35 73 44 54 55 54C67 54 75 73 78 92H32Z" fill="url(#aboutFigureD)"/>
+                  <path d="M23 70C31 61 42 55 55 55C68 55 78 61 85 71" fill="none" stroke="#d6f5ff" stroke-opacity="0.18" stroke-width="2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta">
+        <div class="container">
+          <div class="cta-panel">
+            <span class="eyebrow">Ready when you are</span>
+            <h2>If your LinkedIn sounds flatter than you do in real life, that’s fixable</h2>
+            <p>You do not need more content for the sake of it. You need a profile and presence that make your expertise easier to trust. If you want your LinkedIn to feel more like you, build trust faster, and attract better-fit conversations, let’s talk.</p>
+            <div class="hero-actions">
+              <a href="mailto:hello@ryankeeler.co.uk" class="button-primary">Send me a message ↗</a>
+              <a href="#top" class="button-secondary">Back to the top ↑</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="container">
+          <div class="faq">
+            <div class="faq-header">
+              <span class="section-label">FAQ</span>
+              <h2>A few things people usually want to know before reaching out</h2>
+            </div>
+            <div class="faq-stack">
+              <details class="faq-item">
+                <summary><span>Will this actually sound like me?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">That’s the whole point. My job isn’t to paste a style onto you. It’s to understand how you think, what you notice, what you care about, and how you naturally communicate, then shape that into a stronger online presence.</div>
+              </details>
+              <details class="faq-item">
+                <summary><span>I don’t want to overshare online. Is that a problem?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">No. This isn’t about turning LinkedIn into a diary. We use stories in a controlled, useful way, with enough humanity to build trust without making your content feel exposed or unprofessional.</div>
+              </details>
+              <details class="faq-item">
+                <summary><span>What if I don’t have time for this?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">That’s exactly why people hire me. The process is designed to pull strong material from conversations, voice notes, and the things you’re already doing, then turn that into assets that support your business.</div>
+              </details>
+              <details class="faq-item">
+                <summary><span>Why not just use AI?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">AI can help with speed, but it can’t supply lived perspective. It doesn’t know your standards, your trade-offs, or where your credibility actually comes from. People can feel the difference.</div>
+              </details>
+              <details class="faq-item">
+                <summary><span>Do you only do done-for-you ghostwriting?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">No. I also offer strategic support and consulting for people who want help with positioning, profile improvement, content direction, or storytelling without handing everything over.</div>
+              </details>
+              <details class="faq-item">
+                <summary><span>Who do you usually work with?</span><span class="faq-icon">＋</span></summary>
+                <div class="faq-answer">Usually founders, CEOs, and established B2B leaders whose expertise is real, but whose LinkedIn presence is either underdeveloped, too generic, or not yet doing justice to the level they operate at.</div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>© 2026 Ryan Keeler. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#problem">Problem</a>
+          <a href="#how-i-help">Services</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
